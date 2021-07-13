@@ -1,0 +1,132 @@
+// Mixins
+// Mixin for container
+@mixin container($w: 1200px, $p: 0.77rem) {
+  width: 100%;
+  max-width: calc(#{$w} + 2 * #{$p});
+  padding: 0 $p;
+  margin: 0 auto;
+}
+
+// Colors
+$text-color: #626262;
+$grey: #b4ad9e;
+
+@import "default";
+
+// Containers
+.container {
+  @include container(900px, 1rem);
+  &_hero {
+    @include container(1068px, 1rem);
+  }
+  &_newsletter {
+    @include container(360px, 1rem);
+  }
+}
+
+// Main classes
+.info {
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 300;
+  color: $grey;
+  text-transform: uppercase;
+}
+
+.title {
+  font-size: 30px;
+  color: $text-color;
+  margin: 2rem 0;
+}
+
+.text {
+  line-height: 1.5rem;
+}
+
+.post {
+  width: 100%;
+  // Show comments when user hover a post
+  .comments {
+    &__press {
+      display: block;
+      color: $grey;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+    &__form {
+      margin-top: 1em;
+      // display: flex;
+      display: none;
+    }
+    &__comment {
+      display: none;
+      margin: 1rem;
+      color: $text-color;
+      span,
+      span * {
+        font-family: "Ubuntu", sans-serif;
+      }
+      // Text
+      span:first-child {
+      }
+      // Time
+      span:last-child {
+        color: $grey;
+      }
+    }
+    .comment {
+      &__text {
+        font-size: $fz;
+        padding: 1em 1.5em;
+        width: 100%;
+        border-radius: 5px 0 0 5px;
+        border-width: 1px 0 1px 1px;
+        border-color: black;
+        font-family: "Ubuntu", sans-serif;
+        overflow-y: auto;
+        resize: vertical;
+        &::-webkit-scrollbar {
+          display: hidden;
+        }
+        &:focus,
+        &:active {
+          outline: 0;
+        }
+
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        &::-webkit-scrollbar {
+          display: none;
+        }
+
+        /* Hide scrollbar for IE, Edge and Firefox */
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none; /* Firefox */
+      }
+      &__submit {
+        font-family: "Ubuntu", sans-serif;
+        cursor: pointer;
+        border-radius: 0 5px 5px 0;
+        border-width: 1px 1px 1px 0;
+        background-color: inherit;
+        border-color: black;
+        border-left: black 1px dashed;
+        &:focus,
+        &:active {
+          outline: 0;
+        }
+      }
+    }
+  }
+}
+
+// Header
+@import "header";
+
+// Sections
+@import "her0";
+@import "photodiary";
+@import "news";
+@import "posts_more";
+@import "adaptive";
+
+// Footer
+@import 'footer';

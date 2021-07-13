@@ -1,0 +1,36 @@
+// File for default styles and utility classes
+$ff : 'Playfair Display';
+$fw : 400;
+$fz: 14px;
+
+* {
+    &, &::before, &::after {
+        box-sizing: border-box;
+    }
+}
+
+body * {
+    font-family: $ff, sans-serif;
+    font-weight: $fw;
+}
+
+p {
+    font-size: $fz;
+    color: $text-color;
+}
+
+img {
+    max-width: 100%;
+}
+
+._reset- {
+    &link {
+        text-decoration: none;
+        color: inherit;
+    }
+    &list {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+}

@@ -1,0 +1,161 @@
+// Header
+.header {
+  background-color: white;
+  text-transform: uppercase;
+  padding: 70px 0;
+  &__body {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .nav {
+      display: none;
+      &__list {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      &__item {
+        margin-left: 120px;
+        font-size: 14px;
+        line-height: 1.775em;
+        &:first-child {
+          margin-left: 0;
+        }
+      }
+      &__link {
+        &:hover {
+        }
+        &:active {
+        }
+        &:focus {
+        }
+      }
+    }
+  }
+  &__logo {
+    font-family: "Inconsolata", sans-serif;
+    font-size: 30px;
+    letter-spacing: 6px;
+  }
+
+  $burger-width: 32px;
+  $burger-height: 24px;
+  $burger-line-height: 2px;
+  &__burger {
+    display: none;
+    &,
+    &::before,
+    &::after,
+    &.active,
+    span {
+      border-radius: 15px;
+      transition-duration: 0.35s;
+      transition-timing-function: ease-in-out;
+    }
+    cursor: pointer;
+    position: relative;
+    width: $burger-width;
+    height: $burger-height;
+    // background: purple;
+    align-items: center;
+    &::before,
+    &::after {
+      position: absolute;
+      content: "";
+      display: block;
+      width: $burger-width;
+      height: $burger-line-height;
+      background-color: black;
+    }
+    // Filrst Line
+    &::before {
+      top: 0;
+    }
+    // Second Line
+    span {
+      width: $burger-width;
+      height: $burger-line-height;
+      background-color: black;
+    }
+    // Third Line
+    &::after {
+      bottom: 0;
+    }
+
+    // Activation
+    &.active {
+      transform: translateX(8px);
+      // First Line
+      &::before {
+        transform-origin: top left;
+        transform: rotate(45deg);
+      }
+
+      // Second Line
+      span {
+        opacity: 0;
+      }
+
+      // Third Line
+      &::after {
+        transform-origin: bottom left;
+        transform: rotate(-45deg);
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .header {
+    // &__burger {
+    //   display: block;
+    // }
+    .nav {
+      &__item {
+        margin-left: 2rem;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 720px) {
+  .header {
+    padding-top: 1rem;
+    .nav {
+      // Displaying
+      display: none; // Script will change on flex
+      justify-content: center;
+      background-color: white;
+      // Position
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 120px;
+      padding-bottom: 70px;
+      // Translating to top
+      transform: translateX(-100%);
+      transition-duration: 3s;
+      transition-timing-function: ease-in-out;
+      &__list {
+        flex-direction: column;
+      }
+      &__item {
+        margin-left: 0;
+        margin: 0.5rem 0;
+        font-size: 1rem;
+        line-height: 1.775em;
+      }
+    }
+    &__burger {
+      display: flex;
+      &.active {
+        &::before {
+          transform: rotate(-45deg);
+          transform-origin: bottom left;
+        }
+        span {
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,64 @@
+// Phones
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+}
+
+// Phone (landscape)
+@media only screen and (min-width: 481) and (max-width: 767px) {
+}
+
+// iPad
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+}
+
+// iPad (landscape)
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+}
+
+// PC
+@media only screen and (min-width: 1224px) {
+}
+
+// Big screens
+@media only screen and (min-width: 1824px) {
+}
+
+// Tablets
+@media only screen and (max-width: 768px) {
+    // Photodiary
+    .photodiary__post {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        &:nth-child(2n) {
+            margin-left: 0;
+        }
+    }
+    .photodiary__body {
+        grid-template: 1fr / 1fr;
+    }
+    // Posts
+    .posts-row {
+        flex-direction: column;
+        justify-content: center;
+        .post {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            &:nth-child(2n) {
+                margin-left: 0;
+            }
+            &:nth-child(2) {
+                margin-top: 140px;
+            }
+        }
+    }
+    // Footer
+    .footer {
+        &__body {
+            flex-direction: column;
+        }
+        &__list {
+            margin-top: 1rem;
+        }
+    }
+}

@@ -1,0 +1,21 @@
+.photodiary {
+  &__body {
+    margin-top: 140px;
+    display: grid;
+    // Template
+    /*
+        1fr | 1fr
+        ---------
+        1fr | 1fr
+        */
+    grid-template: repeat(2, 1fr) / repeat(2, 1fr);
+    // Gaps
+    grid-column-gap: 60px;
+    grid-row-gap: 140px;
+  }
+  &__post {
+    &:nth-child(2n) {
+      margin-left: 12px;
+    }
+  }
+}
